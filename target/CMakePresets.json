@@ -1,0 +1,27 @@
+﻿{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "vcpkg",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+    },
+    {
+      "inherits": "vcpkg",
+      "name": "windows",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/build/windows",
+      "toolset": "ClangCL"
+    },
+    {
+      "inherits": "vcpkg",
+      "name": "emscripten",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/emscripten",
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "wasm32-emscripten",
+        "VCPKG_CHAINLOAD_TOOLCHAIN_FILE": "$env{EMSCRIPTEN}/cmake/Modules/Platform/Emscripten.cmake"
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "host-compile-tools",
+  "description": "compile tools for this project",
+  "version": "0.1.0",
+  "dependencies": [
+    "assimp",
+    { "name": "vcpkg-cmake", "host": true },
+    { "name": "vcpkg-cmake-config", "host": true }
+  ],
+  "supports": "native"
+}
